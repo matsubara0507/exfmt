@@ -10,10 +10,17 @@ jobs:
     steps:
       - run: apt-get update
       - run: apt-get install git unzip --yes
-      - run: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
-      - run: echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
-      - run: asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-      - run: asdf install elixir ref:fba7e5c
+      - run: git clone git://github.com/mururu/exenv.git .exenv
+      - run: git clone git://github.com/mururu/elixir-build.git ~/.exenv/plugins/elixir-build
+      - run: echo 'export PATH="/root/.exenv/bin:$PATH"' >> ~/.bashrc
+      - run: echo 'eval "$(exenv init -)"' >> ~/.bashrc
+      - run: exenv install --add v1.6.0-dev-a81a17b
+      - run: exenv global v1.6.0-dev-a81a17b
+      - run: exenv rehash
+      # - run: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
+      # - run: echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+      # - run: asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+      # - run: asdf install elixir ref:fba7e5c
       # - run: asdf install elixir ref:a81a17b-otp-20
 
       # Clone project
