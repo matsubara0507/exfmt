@@ -10,9 +10,9 @@ jobs:
     steps:
       - run: apt-get update
       - run: apt-get install git unzip --yes
-      - run: git clone git://github.com/mururu/exenv.git .exenv
+      - run: git clone git://github.com/mururu/exenv.git ~/.exenv
       - run: git clone git://github.com/mururu/elixir-build.git ~/.exenv/plugins/elixir-build
-      - run: echo 'export PATH="/root/.exenv/bin:$PATH"' >> ~/.bashrc
+      - run: echo 'export PATH="~/.exenv/bin:$PATH"' >> ~/.bashrc
       - run: echo 'eval "$(exenv init -)"' >> ~/.bashrc
       - run: exec $SHELL
       - run: exenv install --add v1.6.0-dev-a81a17b
