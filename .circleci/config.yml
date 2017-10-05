@@ -14,6 +14,7 @@ jobs:
       - run: git clone git://github.com/mururu/elixir-build.git ~/.exenv/plugins/elixir-build
       - run: echo 'export PATH="/root/.exenv/bin:$PATH"' >> ~/.bashrc
       - run: echo 'eval "$(exenv init -)"' >> ~/.bashrc
+      - run: exec $SHELL
       - run: exenv install --add v1.6.0-dev-a81a17b
       - run: exenv global v1.6.0-dev-a81a17b
       - run: exenv rehash
