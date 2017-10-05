@@ -13,7 +13,7 @@ jobs:
       - run: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
       - run: echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
       - run: asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-      - run: asdf install elixir master-otp-20
+      - run: asdf install elixir ref:a81a17b-otp-20
 
       # Clone project
       - checkout
